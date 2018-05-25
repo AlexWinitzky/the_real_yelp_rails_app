@@ -1,0 +1,31 @@
+<h1>Browse Reviews</h1>
+<div>
+<h3>Restaurant List</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Cateogy</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Comments</th>
+    
+      <th>Show</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.name %></td>
+        <td><%= review.category %></td>
+        <td><%= review.phone %></td>
+        <td><%= review.website %></td>
+        <td><%= review.comments %></td>
+     
+        <td><%= link_to 'Show', review_path(review.id), {class: 'btn'} %></td>
+        <td><%= link_to 'Edit', edit_review_path(review.id), {class: 'btn'} %></td>
+        <td><%= link_to 'Delete', review_path(review.id), {method: :delete, class: 'btn red'} %></td>
+      </tr>
+    <% end %>
+  </table>
+  <p><%= link_to 'Add Review', new_review_path, {class: 'btn'} %></p>
+</div>
